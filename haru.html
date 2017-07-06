@@ -6,23 +6,34 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>하루 - 끝나지 않는 지옥</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/haru.css">
 </head>
 <body>
     <div class="wrapper">
         <head>
             <nav>
-                <ul>
-                    <li><a href="#home">HOME</a></li>
-                    <li><a href="#character">CHARACTER</a></li>
-                    <li><a href="#review">REVIEW</a></li>
-                </ul>
+                <div class="nav-wrap">
+                    <ul class="main-menu">
+                        <li class="main-menu-list"><a href="#main">HOME</a></li>
+                        <li class="main-menu-list"><a href="#character">CHARACTER</a></li>
+                        <li class="main-menu-list"><a href="#review">REVIEW</a></li>
+                    </ul>
+                    <div class="reservation-menu-wrap">
+                        <a href="#">예매하기</a>
+                        <ul class="reservation-menu">
+                            <li class="reservation-menu-list"><a href="http://www.cgv.co.kr/" target="_blank">CVG</a></li>
+                            <li class="reservation-menu-list"><a href="http://www.lottecinema.co.kr" target="_blank">롯데시네마</a></li>
+                            <li class="reservation-menu-list"><a href="http://www.megabox.co.kr" target="_blank">메가박스</a></li>
+                        </ul>
+                    </div>
+                </div>
             </nav>
         </head>
         <main>
             <div class="content-wrap">
                 <div class="contents main" id="main">
-                  메인영역
+                    <div class="main-image"></div>
                 </div>
                 <div class="contents character" id="character">
                     <div class="content">캐릭터 소개 영역</div>
@@ -33,5 +44,6 @@
             </div>
         </main>
     </div>
+    <script src="js/haru.js"></script>
 </body>
 </html>

@@ -21,11 +21,12 @@ nav,section, summary, time, input {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font: inherit;
+	// font: inherit;
 	vertical-align: baseline;
 }
 article, aside, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 ul { list-style: none; }
+li { list-style: none; }
 blockquote, q { quotes: none; }
 blockquote:before, blockquote:after, q:before, q:after {
 	content: '';
