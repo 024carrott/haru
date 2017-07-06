@@ -110,16 +110,16 @@ nav {
   background: grey; }
 
 .character {
-  background: lime; }
+  background: lime;
+  overflow: hidden; }
 
 .review {
   background: tomato; }
 
 .content {
   margin: 0 auto;
-  position: relative;
-  margin-top: -50%;
   transform: translateY(50%);
+  margin-top: -50%;
   width: 80%;
   height: 80%;
   background: skyblue; }
