@@ -1,10 +1,58 @@
 html, body {
-  font-family: 'Nanum Gothic', sans-serif;
+    font-family: "Spoqa Han Sans", sans-serif;
 }
 
+$hover-text: 0.1px 0 0 rgba(255, 255, 255, 1), 0 0.1px 0 rgba(255, 255, 255, 1), -0.1px 0 0 rgba(255, 255, 255, 1), 0 -0.1px 0 rgba(255, 255, 255, 1);
+
+%menu-underline{
+    content: "";
+    position: relative;
+    top: 5px;
+    display: block;
+    height: 1px;
+    background: #fff;
+    width: 90%;
+    margin: 0 auto;
+    animation: underline ease-in-out 0.4s;
+}
+
+@keyframes underline{
+    from{
+        width: 0;
+    }
+    to{
+        width: 90%;
+    }
+}
+
+@keyframes play{
+    0%{
+        height: 0;
+        border: none;
+    }
+    1%{
+        border: 1px solid #fff;
+    }
+    100%{
+        border: 1px solid #fff;
+        height: 90px;
+    }
+}
+@keyframes rewind{
+    0%{
+        height: 0;
+        border: none;
+    }
+    1%{
+        border: 1px solid #fff;
+    }
+    100%{
+        border: 1px solid #fff;
+        height: 90px;
+    }
+}
 .wrapper{
     width:100%;
-    min-width: 980px;
 }
 
 .content-wrap{
@@ -12,13 +60,145 @@ html, body {
 }
 nav{
     position: fixed;
-    top: 0; 
-    left: 0;    
+    top: 0;
+    left: 0;
+    width: 100%;
     z-index: 100;
 }
 %content{
     width: 100%;
     height: 100vh;
+    position: relative;
+    min-width: 1200px;
+}
+.scroll-top{
+    background-color: rgba(0, 0, 0, 0.3);
+    transition: background-color ease-in-out 0.5s; 
+}
+
+.nav-wrap{
+    position: relative;
+    font-weight: 200;
+    .main-menu{
+        margin: 0 auto;
+        width: 450px;
+        height: 60px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        .main-menu-list{
+            text-align: center;
+            width: 24%;
+            a{
+                text-decoration: none;
+                color: #fff;
+                font-size: 16px;
+                font-weight: 200;
+                &:hover{
+                    text-shadow: $hover-text;
+                    &::after{
+                        @extend %menu-underline
+                    }
+                }
+            }
+        }
+    }
+}
+.reservation-menu-wrap{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    text-align: center;
+    > a{
+        box-sizing: border-box;
+        border: 1px solid #fff;
+        line-height: 40px;
+        width: 100px;
+        display: inline-block;
+        text-decoration: none;
+        color: #fff;
+        font-size: 0;
+        position: relative;
+        overflow: hidden;
+        &::before{
+            content: '';
+            position: absolute;
+            background-color: #fff;
+            transform: translateX(-50%);
+            margin-left: 50%;
+            height: 40px;
+            width: 0;
+            left: 0;
+            transition: width 0.4s;
+        }
+        &::after{
+            content: '예매하기';
+            position: absolute;
+            font-size: 14px;
+            width: 100px;
+            display: block;
+            left: 0;
+            top: 0;
+        }
+        &:hover{
+            border: 1px solid #fff;
+            &::before{
+                width: 100px;
+            }
+            &::after{
+                color: rgba(34, 49, 83, 1);
+                font-weight: 400;
+            }
+        }
+    }
+}
+
+.reservation-menu{
+    
+    position: relative;
+    overflow: hidden;
+    height: 0;
+    .reservation-menu-list{
+        a{
+            text-decoration: none;
+            line-height: 30px;
+            font-size: 14px;
+            color: #fff;
+            display: block;
+            &:hover{
+                background-color: #fff;
+                color: rgba(34, 49, 83, 1);
+            }
+        }
+    }
+}
+
+.pop-up-on{
+    animation: play 0.6s forwards alternate;
+    height: 90px;
+}
+.pop-up-off{
+    animation: rewind 0.6s backwards reverse;
+    height: 0;
+}
+
+.main{
+    @extend %content;
+}
+
+.main-image{
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/main2.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+%content{
+    width: 100%;
+    height: 100vh;
+    min-height: 768px;
     position: relative;
 }
 
@@ -29,12 +209,237 @@ nav{
 
 .character{
     @extend %content;
-    background: lime;
+    background: url('../images/content-bg.jpg') 50%;
+    background-size: cover;
 }
 
+.character-content{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    
+    figure{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+   
+}
+.character-image{
+    width: 100%;
+    // height: 100%;
+    display: inline-block;
+}
+
+%text{
+    // display: inline-block;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 15px;
+    width: 400px;
+    font-weight: 200;
+    line-height: 30px;
+}
+%text-span{
+    font-weight: 400;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background: rgba(251, 172, 245, 0.38);
+    padding: 3px 5px;
+    line-height: 40px;
+}
+
+.char-info{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    &.info-left{
+        left: 100px;
+    }
+}
+.a-famous-line{
+    // @extend %text;
+    font-family: Batang, Georgia, 'Times New Roman', Times, serif;
+    color: #fff;
+    font-size: 48px;
+    width: 400px;
+    font-style: italic;
+    line-height: 1;
+    padding-bottom: 10px;
+    small{
+        text-indent: 50px;
+        font-size: 21px;
+        line-height:0.6;
+    }
+}
+.a-famous-line-k{
+    width: 450px;
+    margin-left: -50px;
+}
+.a-famous-line-b{
+    color: #181818;
+}
+.a-famous-line-y{
+    width: 600px;
+    // margin-left: 10px;
+    margin-top: 70px;
+}
+.a-famous-line span, .inproduction span{
+    // @extend %text-span;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);    /* IE 구버전 지원 */
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+}
+.inproduction{
+    @extend %text;
+}
 .review{
     @extend %content;
-    background: tomato;
+    position: relative;
+    &-bg{
+        width: 100%;
+        height: 100%;
+        background: url('../images/review_bg.jpg') 50%;
+        background-size: cover;
+        filter: blur(5px);
+    }
+    &-content{
+        position:relative;
+        height: 100%;
+    }
+    &-list{
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-y: auto;
+        // min-height: 300px;
+
+        article{
+            background: rgba(255,255,255,0.5);
+            margin: 5px;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 100%;
+            min-width: 380px;
+            max-width: 30%;
+            h2{
+                font-size: 1.4rem;
+            }
+            p{
+                padding: 5px 0;
+            }
+        }
+    }
+
+    %input{
+        border: 0 none;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 3px;
+        margin-bottom: 2px;
+    }
+    &-input{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        $write-size: 60px;
+        .write-review{
+            position:absolute;
+            z-index: 100;
+            right: 5px;
+            bottom: 0;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            box-sizing: border-box;
+            border-radius: $write-size/2;
+            width: $write-size;
+            height: $write-size;
+            padding-left: $write-size;
+            overflow: hidden;
+            transition: all 0.5s;
+
+           &.open{
+                transform: rotate(45deg);
+                bottom: 220px;
+            }
+        }
+        .write-review::before{
+            content: '';
+            background: url('../images/plus-64.png') 50%;
+            opacity: 0.3;
+            width: $write-size;
+            height: $write-size;
+            font-size: 3rem;
+            margin-left: -$write-size;
+            display: block;
+            color: #fff;
+        }
+        .form{
+            position:absolute;
+            z-index: 5;
+            bottom: 0;
+            right: 30px;
+            width: 300px;
+            height: 250px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 3px solid rgba(255,255,255,0.2);
+            display: none;
+        }
+        input{
+            @extend %input;
+            height: 1.5rem;
+            padding-left: 3px;
+        }
+        textarea{
+            @extend %input;
+            height: 10rem;
+            padding: 3px;
+        }
+        .button{
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 3px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 28px;
+            background: rgba(34, 49, 83, 1);
+        }
+    }
+    .delete-review{
+        text-decoration: none;
+        float: right;
+        display: block;
+        width: 26px;
+        height: 26px;
+        border-radius: 13px;
+        background: rgba(0,0,0,0.2);
+        overflow: hidden;
+        &::before{
+            content:'';
+            background: url('../images/delete-24.png');
+            background-size: cover;
+            display:block;
+            width: 20px;
+            height: 20px;
+            margin:3px;
+        }
+    }
+
 }
 
 .content{
@@ -44,6 +449,57 @@ nav{
     left: 50%;
     transform: translateY(-50%) translateX(-50%); 
     width: 80%;
+    min-width: 1200px;
     height: 80%;
-    background: skyblue;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.btn-close{
+    background-image: url(../images/delete-24.png);
+    background-size: cover;
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: right;
+}
+
+.no-list{
+    background: #fff;
+    background-image: url(../images/emoticon.png);
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    background-size: 200px 200px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%); 
+    width: 80%;
+    min-width: 1200px;
+    height: 450px;
+    line-height: 640px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    text-align: center;
+    font-size: 26px;
+    opacity: 0.8;
+}
+
+.scrolldown-btn{
+    top: -80px;
+    left: 50%;
+    z-index: 10;
+    position: relative;
+    img{
+        position: absolute;
+        width: 60px;
+        height: 60px;
+    }
+    span{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 10;
+        color: #fff;
+    }
 }

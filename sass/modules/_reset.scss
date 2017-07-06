@@ -17,11 +17,11 @@ fieldset, form, label, legend,
 table, caption, tbody, thead, tr, th, td, 
 article, aside, 
 figure, figcaption, footer, header, hgroup, 
-nav,section, summary, time, input {
+nav,section, summary, time, input, textarea {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	font: inherit;
+	// font: inherit;
 	vertical-align: baseline;
 }
 article, aside, figcaption, figure, footer, header, hgroup, nav, section { display: block; }

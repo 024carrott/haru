@@ -26,11 +26,10 @@ fieldset, form, label, legend,
 table, caption, tbody, thead, tr, th, td,
 article, aside,
 figure, figcaption, footer, header, hgroup,
-nav, section, summary, time, input {
+nav, section, summary, time, input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
-  font: inherit;
   vertical-align: baseline; }
 
 article, aside, figcaption, figure, footer, header, hgroup, nav, section {
@@ -53,27 +52,6 @@ table {
 button {
   cursor: pointer; }
 
-@font-face {
-  font-family: 'Nanum Gothic';
-  font-style: normal;
-  font-weight: 400;
-  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot);
-  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot?#iefix) format("embedded-opentype"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff2) format("woff2"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff) format("woff"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Nanum Gothic';
-  font-style: normal;
-  font-weight: 700;
-  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.eot);
-  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.eot?#iefix) format("embedded-opentype"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.woff2) format("woff2"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.woff) format("woff"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.ttf) format("truetype"); }
-
-@font-face {
-  font-family: 'Nanum Gothic';
-  font-style: normal;
-  font-weight: 800;
-  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.eot);
-  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.eot?#iefix) format("embedded-opentype"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.woff2) format("woff2"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.woff) format("woff"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.ttf) format("truetype"); }
-
 .a11y-hidden {
   width: 1px;
   height: 1px;
@@ -88,11 +66,47 @@ button {
   display: none; }
 
 html, body {
-  font-family: 'Nanum Gothic', sans-serif; }
+  font-family: "Spoqa Han Sans", sans-serif; }
+
+.nav-wrap .main-menu .main-menu-list a:hover::after {
+  content: "";
+  position: relative;
+  top: 5px;
+  display: block;
+  height: 1px;
+  background: #fff;
+  width: 90%;
+  margin: 0 auto;
+  animation: underline ease-in-out 0.4s; }
+
+@keyframes underline {
+  from {
+    width: 0; }
+  to {
+    width: 90%; } }
+
+@keyframes play {
+  0% {
+    height: 0;
+    border: none; }
+  1% {
+    border: 1px solid #fff; }
+  100% {
+    border: 1px solid #fff;
+    height: 90px; } }
+
+@keyframes rewind {
+  0% {
+    height: 0;
+    border: none; }
+  1% {
+    border: 1px solid #fff; }
+  100% {
+    border: 1px solid #fff;
+    height: 90px; } }
 
 .wrapper {
-  width: 100%;
-  min-width: 980px; }
+  width: 100%; }
 
 .content-wrap {
   width: 100%; }
@@ -101,21 +115,303 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 100; }
 
 .main, .character, .review {
   width: 100%;
   height: 100vh;
+  position: relative;
+  min-width: 1200px; }
+
+.scroll-top {
+  background-color: rgba(0, 0, 0, 0.3);
+  transition: background-color ease-in-out 0.5s; }
+
+.nav-wrap {
+  position: relative;
+  font-weight: 200; }
+  .nav-wrap .main-menu {
+    margin: 0 auto;
+    width: 450px;
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+    .nav-wrap .main-menu .main-menu-list {
+      text-align: center;
+      width: 24%; }
+      .nav-wrap .main-menu .main-menu-list a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 200; }
+        .nav-wrap .main-menu .main-menu-list a:hover {
+          text-shadow: 0.1px 0 0 white, 0 0.1px 0 white, -0.1px 0 0 white, 0 -0.1px 0 white; }
+
+.reservation-menu-wrap {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: center; }
+  .reservation-menu-wrap > a {
+    box-sizing: border-box;
+    border: 1px solid #fff;
+    line-height: 40px;
+    width: 100px;
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    font-size: 0;
+    position: relative;
+    overflow: hidden; }
+    .reservation-menu-wrap > a::before {
+      content: '';
+      position: absolute;
+      background-color: #fff;
+      transform: translateX(-50%);
+      margin-left: 50%;
+      height: 40px;
+      width: 0;
+      left: 0;
+      transition: width 0.4s; }
+    .reservation-menu-wrap > a::after {
+      content: '예매하기';
+      position: absolute;
+      font-size: 14px;
+      width: 100px;
+      display: block;
+      left: 0;
+      top: 0; }
+    .reservation-menu-wrap > a:hover {
+      border: 1px solid #fff; }
+      .reservation-menu-wrap > a:hover::before {
+        width: 100px; }
+      .reservation-menu-wrap > a:hover::after {
+        color: #223153;
+        font-weight: 400; }
+
+.reservation-menu {
+  position: relative;
+  overflow: hidden;
+  height: 0; }
+  .reservation-menu .reservation-menu-list a {
+    text-decoration: none;
+    line-height: 30px;
+    font-size: 14px;
+    color: #fff;
+    display: block; }
+    .reservation-menu .reservation-menu-list a:hover {
+      background-color: #fff;
+      color: #223153; }
+
+.pop-up-on {
+  animation: play 0.6s forwards alternate;
+  height: 90px; }
+
+.pop-up-off {
+  animation: rewind 0.6s backwards reverse;
+  height: 0; }
+
+.main-image {
+  width: 100%;
+  height: 100%;
+  background-image: url(../images/main2.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
+.main, .character, .review {
+  width: 100%;
+  height: 100vh;
+  min-height: 768px;
   position: relative; }
 
 .main {
   background: grey; }
 
 .character {
-  background: lime; }
+  background: url("../images/content-bg.jpg") 50%;
+  background-size: cover; }
+
+.character-content {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative; }
+  .character-content figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+
+.character-image {
+  width: 100%;
+  display: inline-block; }
+
+.inproduction {
+  border: 1px solid #eee;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 15px;
+  width: 400px;
+  font-weight: 200;
+  line-height: 30px; }
+
+.char-info {
+  position: absolute;
+  top: 30px;
+  right: 20px; }
+  .char-info.info-left {
+    left: 100px; }
+
+.a-famous-line {
+  font-family: Batang, Georgia, 'Times New Roman', Times, serif;
+  color: #fff;
+  font-size: 48px;
+  width: 400px;
+  font-style: italic;
+  line-height: 1;
+  padding-bottom: 10px; }
+  .a-famous-line small {
+    text-indent: 50px;
+    font-size: 21px;
+    line-height: 0.6; }
+
+.a-famous-line-k {
+  width: 450px;
+  margin-left: -50px; }
+
+.a-famous-line-b {
+  color: #181818; }
+
+.a-famous-line-y {
+  width: 600px;
+  margin-top: 70px; }
+
+.a-famous-line span, .inproduction span {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  /* IE 구버전 지원 */
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute; }
 
 .review {
-  background: tomato; }
+  position: relative; }
+  .review-bg {
+    width: 100%;
+    height: 100%;
+    background: url("../images/review_bg.jpg") 50%;
+    background-size: cover;
+    filter: blur(5px); }
+  .review-content {
+    position: relative;
+    height: 100%; }
+  .review-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: auto; }
+    .review-list article {
+      background: rgba(255, 255, 255, 0.5);
+      margin: 5px;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
+      min-width: 380px;
+      max-width: 30%; }
+      .review-list article h2 {
+        font-size: 1.4rem; }
+      .review-list article p {
+        padding: 5px 0; }
+  .review .review-input input, .review-input .review input, .review .review-input textarea, .review-input .review textarea {
+    border: 0 none;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 2px; }
+  .review-input {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+    .review-input .write-review {
+      position: absolute;
+      z-index: 100;
+      right: 5px;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 30px;
+      width: 60px;
+      height: 60px;
+      padding-left: 60px;
+      overflow: hidden;
+      transition: all 0.5s; }
+      .review-input .write-review.open {
+        transform: rotate(45deg);
+        bottom: 220px; }
+    .review-input .write-review::before {
+      content: '';
+      background: url("../images/plus-64.png") 50%;
+      opacity: 0.3;
+      width: 60px;
+      height: 60px;
+      font-size: 3rem;
+      margin-left: -60px;
+      display: block;
+      color: #fff; }
+    .review-input .form {
+      position: absolute;
+      z-index: 5;
+      bottom: 0;
+      right: 30px;
+      width: 300px;
+      height: 250px;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      display: none; }
+    .review-input input {
+      height: 1.5rem;
+      padding-left: 3px; }
+    .review-input textarea {
+      height: 10rem;
+      padding: 3px; }
+    .review-input .button {
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 3px;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 28px;
+      background: #223153; }
+  .review .delete-review {
+    text-decoration: none;
+    float: right;
+    display: block;
+    width: 26px;
+    height: 26px;
+    border-radius: 13px;
+    background: rgba(0, 0, 0, 0.2);
+    overflow: hidden; }
+    .review .delete-review::before {
+      content: '';
+      background: url("../images/delete-24.png");
+      background-size: cover;
+      display: block;
+      width: 20px;
+      height: 20px;
+      margin: 3px; }
 
 .content {
   margin: 0 auto;
@@ -124,5 +420,52 @@ nav {
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   width: 80%;
+  min-width: 1200px;
   height: 80%;
-  background: skyblue; }
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.btn-close {
+  background-image: url(../images/delete-24.png);
+  background-size: cover;
+  display: block;
+  width: 20px;
+  height: 20px;
+  float: right; }
+
+.no-list {
+  background: #fff;
+  background-image: url(../images/emoticon.png);
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: 200px 200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 80%;
+  min-width: 1200px;
+  height: 450px;
+  line-height: 640px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  text-align: center;
+  font-size: 26px;
+  opacity: 0.8; }
+
+.scrolldown-btn {
+  top: -80px;
+  left: 50%;
+  z-index: 10;
+  position: relative; }
+  .scrolldown-btn img {
+    position: absolute;
+    width: 60px;
+    height: 60px; }
+  .scrolldown-btn span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10;
+    color: #fff; }
