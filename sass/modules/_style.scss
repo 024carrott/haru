@@ -1,5 +1,5 @@
 html, body {
-  font-family: "Spoqa Han Sans", sans-serif;
+    font-family: "Spoqa Han Sans", sans-serif;
 }
 
 $hover-text: 0.1px 0 0 rgba(255, 255, 255, 1), 0 0.1px 0 rgba(255, 255, 255, 1), -0.1px 0 0 rgba(255, 255, 255, 1), 0 -0.1px 0 rgba(255, 255, 255, 1);
@@ -51,15 +51,12 @@ $hover-text: 0.1px 0 0 rgba(255, 255, 255, 1), 0 0.1px 0 rgba(255, 255, 255, 1),
         height: 90px;
     }
 }
-
 .wrapper{
     width:100%;
-    min-width: 980px;
 }
 
 .content-wrap{
     width: 100%;
-    height: auto;
 }
 nav{
     position: fixed;
@@ -72,6 +69,7 @@ nav{
     width: 100%;
     height: 100vh;
     position: relative;
+    min-width: 1200px;
 }
 .scroll-top{
     background-color: rgba(0, 0, 0, 0.3);
@@ -109,7 +107,7 @@ nav{
 .reservation-menu-wrap{
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     text-align: center;
     > a{
         box-sizing: border-box;
@@ -186,7 +184,6 @@ nav{
 
 .main{
     @extend %content;
-    background-color: yellow;
 }
 
 .main-image{
@@ -198,14 +195,226 @@ nav{
     background-position: 50%;
 }
 
+%content{
+    width: 100%;
+    height: 700px;
+    position: relative;
+}
+
+.main{
+    @extend %content;
+    background: grey;
+}
+
 .character{
     @extend %content;
-    background: lime;
+    background: url('../images/content-bg.jpg') 50%;
+    background-size: cover;
 }
+
+.character-content{
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    position: relative;
+    
+    figure{
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+    }
+   
+}
+.character-image{
+    width: 100%;
+    // height: 100%;
+    display: inline-block;
+}
+
+%text{
+    // display: inline-block;
+    border: 1px solid #eee;
+    margin-bottom: 5px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.5);
+    color: #fff;
+    padding: 20px;
+    width: 400px;
+    font-weight: 200;
+    line-height: 30px;
+}
+%text-span{
+    font-weight: 400;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    background: rgba(251, 172, 245, 0.38);
+    padding: 3px 5px;
+    line-height: 40px;
+}
+
+.char-info{
+    position: absolute;
+    top: 30px;
+    right: 20px;
+    &.info-left{
+        left: 20px;
+    }
+}
+.a-famous-line{
+    @extend %text;
+    // position: absolute;
+    // right: 3%;
+    // top: 25%;
+}
+.a-famous-line span{
+    @extend %text-span;
+}
+
+.inproduction{
+    @extend %text;
+    // position: absolute;
+    // right: 3%;
+    // top: 40%;
+}
+.inproduction span{
+    @extend %text-span;
+}
+.a-famous-line-y{
+    @extend %text;
+    // position: absolute;
+    // left: 3%;
+    // top: 20%;
+}
+.inproduction-y{
+    @extend %text;
+    // position: absolute;
+    // left: 3%;
+    // top: 39%;
+}
+
 
 .review{
     @extend %content;
-    background: tomato;
+    position: relative;
+    &-bg{
+        width: 100%;
+        height: 100%;
+        background: url('../images/review_bg.jpg') 50%;
+        background-size: cover;
+        filter: blur(5px);
+    }
+    &-content{
+        position:relative;
+        height: 100%;
+    }
+    &-list{
+        display: flex; 
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        align-items: flex-start;
+        overflow-y: auto;
+        article{
+            background: rgba(255,255,255,0.5);
+            margin: 5px;
+            box-sizing: border-box;
+            padding: 10px;
+            width: 100%;
+            min-width: 380px;
+            max-width: 30%;
+            h2{
+                font-size: 1.4rem;
+            }
+            p{
+                padding: 5px 0;
+            }
+            footer{
+                text-align: right;
+                font-size: 14px;
+                color: #808080;
+            }
+        }
+    }
+
+    %input{
+        border: 0 none;
+        font-size: 14px;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 3px;
+        margin-bottom: 2px;
+    }
+    &-input{
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        $write-size: 60px;
+        .write-review{
+            position:absolute;
+            z-index: 100;
+            right: 5px;
+            bottom: 0;
+            background: rgba(255,255,255,0.2);
+            display: inline-block;
+            box-sizing: border-box;
+            border-radius: $write-size/2;
+            width: $write-size;
+            height: $write-size;
+            padding-left: $write-size;
+            overflow: hidden;
+            transition: all 0.5s;
+
+           &.open{
+                transform: rotate(45deg);
+                bottom: 220px;
+            }
+        }
+        .write-review::before{
+            content: '';
+            background: url('../images/plus-64.png') 50%;
+            opacity: 0.3;
+            width: $write-size;
+            height: $write-size;
+            font-size: 3rem;
+            margin-left: -$write-size;
+            display: block;
+            color: #fff;
+        }
+        .form{
+            position:absolute;
+            z-index: 5;
+            bottom: 0;
+            right: 30px;
+            width: 300px;
+            height: 250px;
+            box-sizing: border-box;
+            padding: 10px;
+            border: 3px solid rgba(255,255,255,0.2);
+            display: none;
+        }
+        input{
+            @extend %input;
+            height: 1.5rem;
+            padding-left: 3px;
+        }
+        textarea{
+            @extend %input;
+            height: 10rem;
+            padding: 3px;
+        }
+        .button{
+            font-size: 16px;
+            width: 100%;
+            box-sizing: border-box;
+            border-radius: 3px;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            line-height: 28px;
+            background: rgba(34, 49, 83, 1);
+        }
+    }
 }
 
 .content{
@@ -215,7 +424,58 @@ nav{
     left: 50%;
     transform: translateY(-50%) translateX(-50%); 
     width: 80%;
+    min-width: 1200px;
     height: 80%;
-    background: skyblue;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
+.btn-close{
+    background-image: url(../images/delete-24.png);
+    background-size: cover;
+    display: block;
+    width: 20px;
+    height: 20px;
+    float: right;
+}
+
+.no-list{
+    background: #fff;
+    background-image: url(../images/emoticon.png);
+    background-repeat: no-repeat;
+    background-position: 50% 30%;
+    background-size: 200px 200px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%); 
+    width: 80%;
+    min-width: 1200px;
+    height: 70%;
+    line-height: 640px;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    text-align: center;
+    font-size: 26px;
+    opacity: 0.8;
+}
+
+.scrolldown-btn{
+    top: -80px;
+    left: 50%;
+    z-index: 10;
+    position: relative;
+    img{
+        position: absolute;
+        width: 60px;
+        height: 60px;
+    }
+    span{
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 10;
+        color: #fff;
+    }
+}

@@ -26,7 +26,7 @@ fieldset, form, label, legend,
 table, caption, tbody, thead, tr, th, td,
 article, aside,
 figure, figcaption, footer, header, hgroup,
-nav, section, summary, time, input {
+nav, section, summary, time, input, textarea {
   margin: 0;
   padding: 0;
   border: 0;
@@ -36,9 +36,6 @@ article, aside, figcaption, figure, footer, header, hgroup, nav, section {
   display: block; }
 
 ul {
-  list-style: none; }
-
-li {
   list-style: none; }
 
 blockquote, q {
@@ -54,19 +51,6 @@ table {
 
 button {
   cursor: pointer; }
-
-@font-face {
-  font-family: "NanumSquare";
-  src: url("../fonts/NanumSquareR.eot");
-  src: url("../fonts/NanumSquareR.eot?#iefix") format("embedded-opentype"), url("../fonts/NanumSquareR.woff") format("woff"), url("../fonts/NanumSquareR.ttf") format("truetype");
-  src: local(※), url("../fonts/NanumSquareR.woff") format("woff"); }
-
-@font-face {
-  font-family: 'nanum-square-b';
-  src: url("../fonts/nanumsquareb.eot");
-  src: url("../fonts/nanumsquareb.eot?#iefix") format("embedded-opentype"), url("../fonts/nanumsquareb.woff2") format("woff2"), url("../fonts/nanumsquareb.woff") format("woff"), url("../fonts/nanumsquareb.ttf") format("truetype"), url("../fonts/nanumsquareb.svg#nanumsquarebregular") format("svg");
-  font-weight: normal;
-  font-style: normal; }
 
 .a11y-hidden {
   width: 1px;
@@ -122,12 +106,10 @@ html, body {
     height: 90px; } }
 
 .wrapper {
-  width: 100%;
-  min-width: 980px; }
+  width: 100%; }
 
 .content-wrap {
-  width: 100%;
-  height: auto; }
+  width: 100%; }
 
 nav {
   position: fixed;
@@ -139,7 +121,8 @@ nav {
 .main, .character, .review {
   width: 100%;
   height: 100vh;
-  position: relative; }
+  position: relative;
+  min-width: 1200px; }
 
 .scroll-top {
   background-color: rgba(0, 0, 0, 0.3);
@@ -169,7 +152,7 @@ nav {
 .reservation-menu-wrap {
   position: absolute;
   top: 10px;
-  right: 10px;
+  right: 20px;
   text-align: center; }
   .reservation-menu-wrap > a {
     box-sizing: border-box;
@@ -230,9 +213,6 @@ nav {
   animation: rewind 0.6s backwards reverse;
   height: 0; }
 
-.main {
-  background-color: yellow; }
-
 .main-image {
   width: 100%;
   height: 100%;
@@ -241,11 +221,158 @@ nav {
   background-repeat: no-repeat;
   background-position: 50%; }
 
+.main, .character, .review {
+  width: 100%;
+  height: 700px;
+  position: relative; }
+
+.main {
+  background: grey; }
+
 .character {
-  background: lime; }
+  background: url("../images/content-bg.jpg") 50%;
+  background-size: cover; }
+
+.character-content {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative; }
+  .character-content figure {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; }
+
+.character-image {
+  width: 100%;
+  display: inline-block; }
+
+.a-famous-line, .inproduction, .a-famous-line-y, .inproduction-y {
+  border: 1px solid #eee;
+  margin-bottom: 5px;
+  border-radius: 20px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 20px;
+  width: 400px;
+  font-weight: 200;
+  line-height: 30px; }
+
+.a-famous-line span, .inproduction span {
+  font-weight: 400;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 10px;
+  background: rgba(251, 172, 245, 0.38);
+  padding: 3px 5px;
+  line-height: 40px; }
+
+.char-info {
+  position: absolute;
+  top: 30px;
+  right: 20px; }
+  .char-info.info-left {
+    left: 20px; }
 
 .review {
-  background: tomato; }
+  position: relative; }
+  .review-bg {
+    width: 100%;
+    height: 100%;
+    background: url("../images/review_bg.jpg") 50%;
+    background-size: cover;
+    filter: blur(5px); }
+  .review-content {
+    position: relative;
+    height: 100%; }
+  .review-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    overflow-y: auto; }
+    .review-list article {
+      background: rgba(255, 255, 255, 0.5);
+      margin: 5px;
+      box-sizing: border-box;
+      padding: 10px;
+      width: 100%;
+      min-width: 380px;
+      max-width: 30%; }
+      .review-list article h2 {
+        font-size: 1.4rem; }
+      .review-list article p {
+        padding: 5px 0; }
+      .review-list article footer {
+        text-align: right;
+        font-size: 14px;
+        color: #808080; }
+  .review .review-input input, .review-input .review input, .review .review-input textarea, .review-input .review textarea {
+    border: 0 none;
+    font-size: 14px;
+    width: 100%;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin-bottom: 2px; }
+  .review-input {
+    position: absolute;
+    right: 0;
+    bottom: 0; }
+    .review-input .write-review {
+      position: absolute;
+      z-index: 100;
+      right: 5px;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.2);
+      display: inline-block;
+      box-sizing: border-box;
+      border-radius: 30px;
+      width: 60px;
+      height: 60px;
+      padding-left: 60px;
+      overflow: hidden;
+      transition: all 0.5s; }
+      .review-input .write-review.open {
+        transform: rotate(45deg);
+        bottom: 220px; }
+    .review-input .write-review::before {
+      content: '';
+      background: url("../images/plus-64.png") 50%;
+      opacity: 0.3;
+      width: 60px;
+      height: 60px;
+      font-size: 3rem;
+      margin-left: -60px;
+      display: block;
+      color: #fff; }
+    .review-input .form {
+      position: absolute;
+      z-index: 5;
+      bottom: 0;
+      right: 30px;
+      width: 300px;
+      height: 250px;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      display: none; }
+    .review-input input {
+      height: 1.5rem;
+      padding-left: 3px; }
+    .review-input textarea {
+      height: 10rem;
+      padding: 3px; }
+    .review-input .button {
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 3px;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      line-height: 28px;
+      background: #223153; }
 
 .content {
   margin: 0 auto;
@@ -254,5 +381,52 @@ nav {
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
   width: 80%;
+  min-width: 1200px;
   height: 80%;
-  background: skyblue; }
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.btn-close {
+  background-image: url(../images/delete-24.png);
+  background-size: cover;
+  display: block;
+  width: 20px;
+  height: 20px;
+  float: right; }
+
+.no-list {
+  background: #fff;
+  background-image: url(../images/emoticon.png);
+  background-repeat: no-repeat;
+  background-position: 50% 30%;
+  background-size: 200px 200px;
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 80%;
+  min-width: 1200px;
+  height: 70%;
+  line-height: 640px;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  text-align: center;
+  font-size: 26px;
+  opacity: 0.8; }
+
+.scrolldown-btn {
+  top: -80px;
+  left: 50%;
+  z-index: 10;
+  position: relative; }
+  .scrolldown-btn img {
+    position: absolute;
+    width: 60px;
+    height: 60px; }
+  .scrolldown-btn span {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    z-index: 10;
+    color: #fff; }
