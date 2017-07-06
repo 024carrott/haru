@@ -1,0 +1,18 @@
+
+%clearfix{
+    content: '';
+    display: block;
+    clear: both;
+}
+.a11y-hidden{
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);    /* IE 구버전 지원 */
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+}
+.hidden{
+    display: none;
+}
