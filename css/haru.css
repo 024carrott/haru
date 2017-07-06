@@ -1,0 +1,125 @@
+@charset "UTF-8";
+html {
+  line-height: 1.5;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; }
+
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects; }
+
+b, strong {
+  font-weight: inherit; }
+
+b, strong {
+  font-weight: bolder; }
+
+img {
+  border-style: none; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, q, a, abbr, address, cite, em, img, kbd, b,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, thead, tr, th, td,
+article, aside,
+figure, figcaption, footer, header, hgroup,
+nav, section, summary, time, input {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  vertical-align: baseline; }
+
+article, aside, figcaption, figure, footer, header, hgroup, nav, section {
+  display: block; }
+
+ul {
+  list-style: none; }
+
+blockquote, q {
+  quotes: none; }
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+button {
+  cursor: pointer; }
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot);
+  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.eot?#iefix) format("embedded-opentype"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff2) format("woff2"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.woff) format("woff"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Regular.ttf) format("truetype"); }
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.eot);
+  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.eot?#iefix) format("embedded-opentype"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.woff2) format("woff2"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.woff) format("woff"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-Bold.ttf) format("truetype"); }
+
+@font-face {
+  font-family: 'Nanum Gothic';
+  font-style: normal;
+  font-weight: 800;
+  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.eot);
+  src: url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.eot?#iefix) format("embedded-opentype"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.woff2) format("woff2"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.woff) format("woff"), url(//fonts.gstatic.com/ea/nanumgothic/v5/NanumGothic-ExtraBold.ttf) format("truetype"); }
+
+.a11y-hidden {
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  clip: rect(0 0 0 0);
+  /* IE 구버전 지원 */
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
+  position: absolute; }
+
+.hidden {
+  display: none; }
+
+html, body {
+  font-family: 'Nanum Gothic', sans-serif; }
+
+.wrapper {
+  width: 100%;
+  min-width: 980px; }
+
+.content-wrap {
+  width: 100%; }
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0; }
+
+.main, .character, .review {
+  width: 100%;
+  height: 100vh; }
+
+.main {
+  background: grey; }
+
+.character {
+  background: lime; }
+
+.review {
+  background: tomato; }
+
+.content {
+  margin: 0 auto;
+  position: relative;
+  margin-top: -50%;
+  transform: translateY(50%);
+  width: 80%;
+  height: 80%;
+  background: skyblue; }

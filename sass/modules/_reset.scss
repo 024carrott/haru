@@ -1,0 +1,40 @@
+html {
+  line-height: 1.5; 
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+a {
+  background-color: transparent;
+  -webkit-text-decoration-skip: objects;
+}
+b, strong { font-weight: inherit; }
+b, strong { font-weight: bolder; }
+img {  border-style: none; }
+svg:not(:root) { overflow: hidden; }
+html, body, div, span, h1, h2, h3, h4, h5, h6, p, blockquote, q, a, abbr, address, cite, em, img, kbd, b, 
+dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, 
+table, caption, tbody, thead, tr, th, td, 
+article, aside, 
+figure, figcaption, footer, header, hgroup, 
+nav,section, summary, time, input {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+article, aside, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+button{
+	cursor: pointer;
+}

@@ -1,0 +1,46 @@
+html, body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.wrapper{
+    width:100%;
+    min-width: 980px;
+}
+
+.content-wrap{
+    width: 100%;
+}
+nav{
+    position: fixed;
+    top: 0; 
+    left: 0;    
+}
+%content{
+    width: 100%;
+    height: 100vh;
+}
+
+.main{
+    @extend %content;
+    background: grey;
+}
+
+.character{
+    @extend %content;
+    background: lime;
+}
+
+.review{
+    @extend %content;
+    background: tomato;
+}
+
+.content{
+    margin:0 auto;
+    position: relative;
+    margin-top : -50%;
+    transform: translateY(50%);
+    width: 80%;
+    height: 80%;
+    background: skyblue;
+}
