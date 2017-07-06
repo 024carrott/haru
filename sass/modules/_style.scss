@@ -28,6 +28,7 @@ nav{
 .character{
     @extend %content;
     background: lime;
+    overflow: hidden;
 }
 
 .review{
@@ -36,10 +37,9 @@ nav{
 }
 
 .content{
-    margin:0 auto;
-    position: relative;
-    margin-top : -50%;
+    margin: 0 auto;
     transform: translateY(50%);
+    margin-top: -50%;
     width: 80%;
     height: 80%;
     background: skyblue;
